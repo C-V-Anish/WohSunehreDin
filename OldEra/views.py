@@ -13,3 +13,9 @@ def songs(request):
 
 def aboutus(request):
     return HttpResponse("About Page")
+
+def watchlist(request):
+    return HttpResponse("WatchList Page")
+
+def recommendations(request):
+    return HttpResponse("Recommendations Page")
