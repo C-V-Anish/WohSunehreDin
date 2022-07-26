@@ -1,0 +1,29 @@
+body
+  {
+    font-family: cursive;
+    background-image: url(https://media1.giphy.com/media/xUySTV5xkQNm5t98sM/giphy.gif?cid=ecf05e47b34pgyggqxq2sl31af9jpv3gzzi41o20xmdv5506&rid=giphy.gif&ct=g);
+    height: 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    color: white;
+  }
+
+  .card-top
+  {
+    width:35%;
+    margin-top: 20px;
+    margin-left: 20px;
+    border: 2px solid white;
+  }
+
+  #card2
+  {
+    margin-left:27%
+  }
+
+  .bot-div
+  {
+    margin-top: 12%;
+  }
