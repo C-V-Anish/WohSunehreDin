@@ -15,7 +15,7 @@ def aboutus(request):
     return HttpResponse("About Page")
 
 def watchlist(request):
-    return HttpResponse("WatchList Page")
+    return render(request,"watchlist.html")
 
 def recommendations(request):
     return HttpResponse("Recommendations Page")

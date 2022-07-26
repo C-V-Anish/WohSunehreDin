@@ -1,0 +1,32 @@
+{% extends 'basic.html' %}
+    {% load static %}
+    {% block title %}Watch-List{% endblock %}
+    {% block linkstylesheet %}<link rel="stylesheet" type="text/css" href="{% static '/css/watchlist.css' %}">{% endblock %}
+    {% block body %}
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col" id="pleft1">Movie</th>
+            <th scope="col" id="pleft2">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td id="pleft1">Mark</td>
+            <td id="pleft2">Otto</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td id="pleft1">Jacob</td>
+            <td id="pleft2">Thornton</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td id="pleft1">Larry</td>
+            <td id="pleft2">the Bird</td>
+          </tr>
+        </tbody>
+      </table>
+    {% endblock %}
