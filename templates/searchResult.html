@@ -1,6 +1,14 @@
 {% extends 'basic.html' %}
     {% load static %}
     {% block title %}Search Results{% endblock %}
+    {% block linkstylesheet %} <link rel="stylesheet" type="text/css" href="{% static '/css/searchResult.css' %}"> {% endblock %}
     {% block body %}
-        <p style="text-align:center ;">{{a1}},{{a2}}</p>
+    <div id="res" class="my-4">
+        <h3>{{movie_name}}</h3>
+        {% if temp %}
+            <p>{{a1}},{{a2}},{{a3}},{{a4}},{{a5}}</p>
+        {% else %}
+            <p>{{a1}},{{a2}}</p>
+    </div>
+    {% endif %}
     {% endblock %}
