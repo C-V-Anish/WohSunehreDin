@@ -28,6 +28,7 @@ def searchResults(request):
     if request.method=='POST':
         txt=request.POST.get('SEARCHBAR','a')
         movie = ab.search_movie(txt)
-        for i in range(1,10):
-            print(movie[i])
-    return render(request,"searchResult.html")
+        id=movie[0].movieID
+        film=ab.get_movie(id)
+        cast={'a1':film['cast'][0],'a2':film['cast'][1]}
+    return render(request,"searchResult.html",cast)
