@@ -1,12 +1,10 @@
 $(document).ready(function(){
     $('#subbtn').click(function()
     {
-        $('input[type="search"]').each(function()
-        {
-            if ($(this).val() == " ") {
-               alert("Empty")
-               document.location='/movies';
-            }
-         })
+       var str=$('#inputmov').val();
+       if(str.trim().length === 0)
+       {
+            alert("Please fill the field.")
+       }
     })
 });

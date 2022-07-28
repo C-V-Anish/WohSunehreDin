@@ -1,0 +1,17 @@
+{% extends 'basic.html' %}
+    {% load static %}
+    {% block title %}Movies{% endblock %}
+    {% block linkstylesheet %}
+        <link rel="stylesheet" type="text/css" href="{% static '/css/movies.css' %}">
+    {% endblock %} 
+
+    {% block body %}
+    <div class="card" id="cscard" style="width: 18rem;">
+        <img class="card-img-top" src="{% static 'images/actr1.jpg' %}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Kashmir Ki Kali</h5>
+          <p class="card-text"></p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+    </div>
+    {% endblock %}
