@@ -5,28 +5,16 @@
     {% block body %}
     <table class="table">
         <thead>
-          <tr>
+          <tr class="col-md-8">
             <th scope="col">#</th>
             <th scope="col" id="pleft1">Movie</th>
             <th scope="col" id="pleft2">Status</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td id="pleft1">Mark</td>
-            <td id="pleft2">Otto</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td id="pleft1">Jacob</td>
-            <td id="pleft2">Thornton</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td id="pleft1">Larry</td>
-            <td id="pleft2">the Bird</td>
-          </tr>
+        <tbody id="app">
         </tbody>
       </table>
+      <button class="btn btn-primary btnt">Add</button>
+      <button class="btn btn-primary btnd">Delete</button>
+      {% block jsdeclare %} <script src="{% static 'js/watchlist.js' %}"></script> {% endblock %}
     {% endblock %}

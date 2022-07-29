@@ -1,4 +1,5 @@
-$(document).ready(function(){
+$(document).ready(function()
+{
     $('#subbtn').click(function()
     {
        var str=$('#inputmov').val();
