@@ -7,8 +7,10 @@
         <h3>{{movie_name}}</h3>
         {% if temp %}
             <p>{{a1}},{{a2}},{{a3}},{{a4}},{{a5}}</p>
+            <img src="{{image}}" alt="movie image" style="width:20%;height:50%">
         {% else %}
             <p>{{a1}},{{a2}}</p>
+            <img src="{{image}}" alt="movie image" style="width:20%;height:50%">
     </div>
     {% endif %}
     {% endblock %}

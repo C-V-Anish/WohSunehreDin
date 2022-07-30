@@ -2,8 +2,11 @@ from django.shortcuts import redirect, render
 from django.http import HttpResponse
 from imdb import Cinemagoer
 import string
+from scraper_api import ScraperAPIClient
+from bs4 import BeautifulSoup
 
 ab=Cinemagoer()
+client = ScraperAPIClient("2a340d7354482b7bc8055a164dafb063")
 
 # Create your views here.
 def index(request):
@@ -34,19 +37,25 @@ def searchResults(request):
             movie = ab.search_movie(txt)
             try:
                 id=movie[0].movieID
+                url="https://www.imdb.com/title/tt"+str(id)+"/"
+                url_data=client.get(url).text
+                s_data=BeautifulSoup(url_data,"html.parser")
+                imdb_image=s_data.find("meta",property="og:image")
+                image_link=imdb_image.attrs['content']
+                
                 film=ab.get_movie(id)
                 a=film.get('language', None)
                 list=['Hindi','Tamil']
-                if ((film['year'] > 1990) or (a not in list)):
+                if ((film['year'] > 1990)):
                     dict={'message':'No such movie by this name exists in the RetroEra'}
                     return render(request,'error.html',dict)
                 else:
                     l=len(film['cast'])
                     if l>5:
-                        cast={'a1':film['cast'][0],'a2':film['cast'][1],'a3':film['cast'][2],'a4':film['cast'][3],'a5':film['cast'][4],'temp':temp,'movie_name':string.capwords(movie[0]['title'],None)}
+                        cast={'a1':film['cast'][0],'a2':film['cast'][1],'a3':film['cast'][2],'a4':film['cast'][3],'a5':film['cast'][4],'temp':temp,'movie_name':string.capwords(movie[0]['title'],None),"image":image_link}
                     else:
                         temp=False
-                        cast={'a1':film['cast'][0],'a2':film['cast'][1],'temp':temp,'movie_name':string.capwords(movie[0]['title'],None)}
+                        cast={'a1':film['cast'][0],'a2':film['cast'][1],'temp':temp,'movie_name':string.capwords(movie[0]['title'],None),"image":image_link}
                     return render(request,"searchResult.html",cast)
             except:
                 dict={'message':'No such movie by this name exists'}
