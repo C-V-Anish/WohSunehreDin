@@ -1,5 +1,11 @@
 #cscard
 {
-    width:18rem;
+    width:18%;
     color: black;
+    margin: 1%;
+}
+
+#btns
+{
+    padding-left: 8%;
 }
