@@ -1,5 +1,6 @@
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
+from flask import request_tearing_down
 from imdb import Cinemagoer
 import string
 from scraper_api import ScraperAPIClient
@@ -13,6 +14,9 @@ def index(request):
     return render(request,"index.html")
 
 def movies(request):
+    if request.method=='POST':
+        mov=request.POST.get('name',' ')
+        
     return render(request,"movies.html")
 
 def songs(request):
