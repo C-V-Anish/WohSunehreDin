@@ -28,7 +28,7 @@
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary">Add</button>
+            <button type="submit" class="btn btn-primary" id="search">Add</button>
         </form>
       </div>
     </div>
@@ -37,9 +37,9 @@
     <div class="container">
         <div class="row">
             <div class="card" id="cscard">
-                <img class="card-img-top" src="{% static 'images/kkk1964.jpg' %}" alt="Card image cap">
+                <img class="card-img-top" src="{{image_link}}" alt="Card image cap">
                 <div class="card-body">
-                  <h5 class="card-title" style="text-align:center;">Kashmir Ki Kali</h5>
+                  <h5 class="card-title" style="text-align:center;">{{movie_name}}</h5>
                   <p class="card-text"></p>
                   <span id="btns">
                     <a href="#" class="btn btn-secondary btn-sm">View Details</a>
@@ -47,8 +47,7 @@
                 </span>
                 </div>
             </div>
-            
+          </div>
         </div>
-    </div>
-
+        {% block jsdeclare %}<script type="text/js" src="{% static 'js/movies.js'%}"></script>{% endblock %}
     {% endblock %}

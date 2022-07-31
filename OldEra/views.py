@@ -1,10 +1,10 @@
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
-from flask import request_tearing_down
 from imdb import Cinemagoer
 import string
 from scraper_api import ScraperAPIClient
 from bs4 import BeautifulSoup
+import PIL.Image
 
 ab=Cinemagoer()
 client = ScraperAPIClient("2a340d7354482b7bc8055a164dafb063")
@@ -16,6 +16,24 @@ def index(request):
 def movies(request):
     if request.method=='POST':
         mov=request.POST.get('name',' ')
+        if mov.strip()=="":
+            return redirect('movies')
+        else:
+            movie = ab.search_movie(mov)
+            id=movie[0].movieID
+            film=ab.get_movie(id)
+            url="https://www.imdb.com/title/tt"+str(id)+"/"
+            url_data=client.get(url).text
+            s_data=BeautifulSoup(url_data,"html.parser")
+            imdb_image=s_data.find("meta",property="og:image")
+            image_link=imdb_image.attrs['content']
+            if ((film['year'] > 1990)) :
+                dict={'message':'No such movie by this name exists in the RetroEra'}
+                return render(request,'error.html',dict)
+            else:
+                dict={"image_link":image_link,"movie_name":string.capwords(movie[0]['title'],None)}
+                return render(request,'movies.html',dict)
+            
         
     return render(request,"movies.html")
 
@@ -49,8 +67,7 @@ def searchResults(request):
                 
                 film=ab.get_movie(id)
                 a=film.get('language', None)
-                list=['Hindi','Tamil']
-                if ((film['year'] > 1990)):
+                if ((film['year'] > 1990)) :
                     dict={'message':'No such movie by this name exists in the RetroEra'}
                     return render(request,'error.html',dict)
                 else:
