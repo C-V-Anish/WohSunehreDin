@@ -25,7 +25,7 @@ def movies(request):
             return redirect('movies')
         else:
 
-            movie = ab.search_movie(mov)
+            movie = ab.search_movie(mov) 
             try:
 
                 id=movie[0].movieID
