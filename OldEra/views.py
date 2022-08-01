@@ -42,13 +42,13 @@ def movies(request):
 
                 image_link=imdb_image.attrs['content']
 
-                '''u=urlopen(image_link)
+                u=urlopen(image_link)
 
                 raw=u.read()
 
                 image=PIL.Image.open(io.BytesIO(raw))
 
-                image.save("static/images/"+str(id)+"jpg","JPEG")'''
+                image.save("static/images/"+str(id)+".jpg","JPEG")
 
                 cinema=Movie(movie_name=string.capwords(movie[0]['title'],None),movie_img=image_link)
 
