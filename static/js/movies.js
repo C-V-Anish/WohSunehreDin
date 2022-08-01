@@ -1,6 +1,6 @@
-$(document).ready(function()
+/*$(document).ready(function()
 {
-    $('.srch').click(function(){
-        console.log("fcascdf")
+    $('#search').click(function(){
+        $(".container").attr("hidden", false);
     })
-});
+});*/
