@@ -1,11 +1,10 @@
 body
   {
     font-family: cursive;
-    background-image: url(https://media1.giphy.com/media/xUySTV5xkQNm5t98sM/giphy.gif?cid=ecf05e47b34pgyggqxq2sl31af9jpv3gzzi41o20xmdv5506&rid=giphy.gif&ct=g);
     height: 100%;
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-size: cover;
+    background-size:50%;
     color: white;
   }

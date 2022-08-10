@@ -19,6 +19,8 @@ def index(request):
 def movies(request):
     if request.method=='POST':
 
+        pres=False
+
         mov=request.POST.get('name',' ')
 
         if mov.strip()=="":
@@ -58,11 +60,11 @@ def movies(request):
                     dict={'message':'No such movie by this name exists in the RetroEra'}
                     return render(request,'error.html',dict)
                 else:
-                    dict={"image_link":image_link,"movie_name":string.capwords(movie[0]['title'],None)}
+                    pres=True
+                    dict={"image_link":image_link,"movie_name":string.capwords(movie[0]['title'],None),"image_pres":pres}
                     return render(request,'movies.html',dict)
             except (IMDbError,AttributeError) as e:
                 print(e)
-
 
             
         
