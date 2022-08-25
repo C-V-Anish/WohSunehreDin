@@ -23,6 +23,10 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 32%;
+    width: 24%;
     padding-top: 8px;
+}
+#cont
+{
+    text-align: center;
 }

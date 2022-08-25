@@ -1,4 +1,3 @@
-from cv2 import namedWindow
 from django.urls import path
 from . import views
 

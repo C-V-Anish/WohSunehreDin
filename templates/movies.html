@@ -8,7 +8,7 @@
     {% block body %}
 
     <!-- Button trigger modal -->
-<button type="button" class="btn btn-secondary btn-sm" id="addmov" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">Add Movie</button>
+<button type="button" class="btn btn-secondary btn-sm" id="addmov" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">Search Movie</button>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -33,13 +33,16 @@
   </div>
 </div>
 {% if image_pres %}
-  <div class="container">
+  <div class="container" id="cont">
     <img class="card-img-top" src="{{image_link}}" alt="Card image cap" style="display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 32%;
+    width: 24%;
     padding-top: 8px;">
-    <h5 class="card-title" style="text-align:center;">{{movie_name}}</h5>
+    <h3 class="card-title my-4" style="text-align:center;"><u>{{movie_name}}</u></h3>
+    <p><h4><b>Plot</b>-{{Description}}</h4></p>
+    <br>
+    <h3><b>Starring</b>-{{Actor1}},{{Actor2}}</h3>
   </div>
   {% endif %}
  

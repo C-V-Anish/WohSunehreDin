@@ -42,6 +42,8 @@ def movies(request):
 
                 imdb_image=s_data.find("meta",property="og:image")
 
+                imdb_desc=s_data.find("span",class_="sc-16ede01-2 gXUyNh").text
+
                 image_link=imdb_image.attrs['content']
 
                 u=urlopen(image_link)
@@ -61,7 +63,7 @@ def movies(request):
                     return render(request,'error.html',dict)
                 else:
                     pres=True
-                    dict={"image_link":image_link,"movie_name":string.capwords(movie[0]['title'],None),"image_pres":pres}
+                    dict={"image_link":image_link,"movie_name":string.capwords(movie[0]['title'],None),"image_pres":pres,"Description":imdb_desc,"Actor1":film['cast'][0],"Actor2":film["cast"][1]}
                     return render(request,'movies.html',dict)
             except (IMDbError,AttributeError) as e:
                 print(e)
